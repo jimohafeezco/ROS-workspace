@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<launch>
+    <include file="$(find spawn_robot_tools_pkg)/launch/spawn_robot_urdf.launch">
+        <arg name="x" default="0.0" />
+        <arg name="y" default="0.0" />
+        <arg name="z" default="1.0" />
+        <arg name="roll" default="0"/>
+        <arg name="pitch" default="0"/>
+        <arg name="yaw" default="0.0" />
+        <!-- <param name="robot_description" command="$(find xacro)/xacro.py '$(find mrobot)/urdf/mrobot.xacro'" /> -->
+
+        <!-- <arg name="urdf_robot_file" default="$(find mrobot)/urdf/mrobot.urdf" /> -->
+        <arg name="robot_name" default="mrobot" />
+    </include>
+<param name="robot_description" command="$(find xacro)/xacro.py '$(find mrobot)/urdf/mrobot.xacro'" />
+
+</launch>

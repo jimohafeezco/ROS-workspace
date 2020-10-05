@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <rosparam file="$(find littledog)/config/littledog.yaml"
+            command="load"/>
+
+  <node name="robot_state_publisher_littledog" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+            <param name="publish_frequency" type="double" value="30.0" />
+            <param name="ignore_timestamp" type="bool" value="true" />
+            <param name="tf_prefix" type="string" value="littledog" />
+            <remap from="/joint_states" to="/littledog/joint_states" />
+        </node>
+
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="--namespace=/littledog
+                              joint_state_controller
+                              flhr_joint_position_controller
+                              flhp_joint_position_controller
+                              flk_joint_position_controller
+                              frhr_joint_position_controller
+                              frhp_joint_position_controller
+                              frk_joint_position_controller
+                              blhr_joint_position_controller
+                              blhp_joint_position_controller
+                              blk_joint_position_controller
+                              brhr_joint_position_controller
+                              brhp_joint_position_controller
+                              brk_joint_position_controller
+                              --shutdown-timeout 3">
+  </node>
+
+</launch>
+
+
+<!-- sudo apt-get install ros-melodic-control ros-melodic-ros-controllers  -->

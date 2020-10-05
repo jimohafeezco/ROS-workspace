@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">	</include>
+
+<!--        <arg name="x" default="0.0" />
+        <arg name="y" default="0.0" />
+        <arg name="z" default="0.0" />
+-->
+        <arg name="model" default="$(find mira_robot)/urdf/mira_inertia.urdf" />
+        <param name="robot_description" command="cat $(find mira_robot)/urdf/mira_inertia.urdf" />
+<!--        <node name="spawner" pkg="gazebo_ros" type="spawn_model" respawn = "false" output = "screen" args= "-urdf -x $(arg x) -y $(arg y) -z $(arg z)  -model manipulator -param robot_description"/>
+
+	<param name="robot_description" textfile="$(find robot_description)/urdf/robot.urdf"/>
+	-->
+<!--	<node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" respawn = "false" output = "screen"
+		args="-urdf -x $(arg x) -y $(arg y) -z $(arg z)  -model $(arg mira_robot) -param robot_description"/>-->
+	<node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -model mira_robot -param robot_description -z 1">
+	</node>
+</launch>
+

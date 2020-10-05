@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/quadruped</robotNamespace>
+        </plugin>
+    </gazebo>
+
+ 
+
+    <gazebo reference="trunk">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="lf_lowerleg">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+
+    <gazebo reference="lh_lowerleg">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+
+    <gazebo reference="rh_lowerleg">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+    <gazebo reference="rf_lowerleg">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+
+
+    <gazebo reference="lf_upperleg">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+    <gazebo reference="lh_upperleg">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+    <gazebo reference="rf_upperleg">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>    
+    <gazebo reference="rh_upperleg">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+
+    <gazebo reference="lf_hipassembly">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+
+    <gazebo reference="rf_hipassembly">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+    
+    <gazebo reference="lh_hipassembly">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+    <gazebo reference="rh_hipassembly">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <!--<material>Gazebo/Blue</material>-->
+    </gazebo>
+        
+    <transmission name="lf_haa_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="lf_haa_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="lf_haa_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+        <transmission name="lf_hfe_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="lf_hfe_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="lf_hfe_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>    
+    
+    <transmission name="lf_kfe_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="lf_kfe_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="lf_kfe_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+ 
+
+
+    <transmission name="rh_haa_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="rh_haa_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="rh_haa_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+        <transmission name="rh_hfe_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="rh_hfe_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="rh_hfe_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>    
+    
+    <transmission name="rh_kfe_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="rh_kfe_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="rh_kfe_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+
+
+    <transmission name="lh_haa_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="lh_haa_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="lh_haa_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+        <transmission name="lh_hfe_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="lh_hfe_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="lh_hfe_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>    
+    
+    <transmission name="lh_kfe_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="lh_kfe_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="lh_kfe_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+ 
+
+
+    <transmission name="rf_haa_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="rf_haa_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="rf_haa_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+        <transmission name="rf_hfe_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="rf_hfe_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="rf_hfe_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>    
+    
+    <transmission name="rf_kfe_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="rf_kfe_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="rf_kfe_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+
+
+ </robot>

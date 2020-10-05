@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <rosparam file="$(find spotmini)/config/gazebo_spot_control.yaml"
+            command="load"/>
+
+  <node name="robot_state_publisher_monoped" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+            <param name="publish_frequency" type="double" value="30.0" />
+            <param name="ignore_timestamp" type="bool" value="true" />
+            <param name="tf_prefix" type="string" value="spotmini" />
+            <remap from="/joint_states" to="/spotmini/joint_states" />
+        </node>
+
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="--namespace=/spotmini
+                            joint_state_controller
+                            head_upperlegM1_joint_position_controller
+                            head_upperlegM2_joint_position_controller
+                            head_upperlegM3_joint_position_controller
+                            head_upperlegM4_joint_position_controller
+                            upperlegM1_lowerlegM1_joint_position_controller
+                            upperlegM2_lowerlegM2_joint_position_controller
+                            upperlegM3_lowerlegM3_joint_position_controller
+                            upperlegM4_lowerlegM4_joint_position_controller
+                              --shutdown-timeout 3">
+  </node>
+
+</launch>
+<!-- sudo apt-get install ros-melodic-control ros-melodic-ros-controllers  -->

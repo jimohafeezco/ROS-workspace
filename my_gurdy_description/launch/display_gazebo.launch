@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">	</include>
+	<!-- <include file="$(find gazebo_ros)/launch/shapes_world.launch">	</include> -->
+
+        <arg name="model" default="$(find my_gurdy_description)/urdf/gurdy.urdf" />
+        <param name="robot_description" command="cat $(find my_gurdy_description)/urdf/gurdy.urdf" />
+
+	<node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -model gurdy -param robot_description -z -0">
+	</node>
+	    
+	<!-- <node name="control_spot" pkg="my_gurdy_description" type="control_spot.py" /> -->
+	<node name="image_listener" pkg="my_gurdy_description" type="gurdy_move.py" />
+
+	<rosparam command = "load" file= "$(find my_gurdy_description)/config/gurdy_controller.yaml"/>
+	
+ <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/gurdy" args="head_upperlegM1_joint_position_controller 
+    head_upperlegM2_joint_position_controller head_upperlegM3_joint_position_controller
+     upperlegM1_lowerlegM1_joint_position_controller upperlegM2_lowerlegM2_joint_position_controller
+      upperlegM3_lowerlegM3_joint_position_controller joint_state_controller"/>
+   
+</launch>

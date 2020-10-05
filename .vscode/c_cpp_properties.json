@@ -1,0 +1,33 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/hafeez/catkinws/devel/include/**",
+                "/home/hafeez/test_ws/devel/include/**",
+                "/home/hafeez/catkin_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/hafeez/test_ws/src/drones_labs/drone_sim/include/**",
+                "/home/hafeez/test_ws/src/dynamic_tutorials/include/**",
+                "/home/hafeez/catkin_ws/src/mavros/libmavconn/include/**",
+                "/home/hafeez/catkin_ws/src/mavros/mavros/include/**",
+                "/home/hafeez/catkin_ws/src/mavros/mavros_msgs/include/**",
+                "/home/hafeez/catkin_ws/src/mavros/test_mavros/include/**",
+                "/home/hafeez/test_ws/src/xpp/robots/xpp_hyq/include/**",
+                "/home/hafeez/test_ws/src/xpp/xpp_msgs/include/**",
+                "/home/hafeez/test_ws/src/xpp/xpp_states/include/**",
+                "/home/hafeez/test_ws/src/xpp/xpp_vis/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
